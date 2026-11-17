@@ -1,18 +1,22 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Auth\LogoutController;
 
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
-Route::livewire('/', 'pages::home-page')->name('home');
+Route::livewire('/', 'pages::home')
+    ->name('home');
 
-// Позже вся эта группа получит middleware ['auth', 'verified'] (задача 1.1)
-Route::livewire('/dashboard', 'pages::dashboard')->name('dashboard');
-Route::livewire('/groups', 'pages::groups.index')->name('groups.index');
-Route::livewire('/activity', 'pages::activity')->name('activity');
-Route::livewire('/profile', 'pages::profile')->name('profile');
+Route::livewire('/register', 'pages::auth.register')
+    ->name('register');
 
+
+    Route::livewire('/dashboard', 'pages::dashboard')
+    ->name('dashboard');
+
+
+Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');

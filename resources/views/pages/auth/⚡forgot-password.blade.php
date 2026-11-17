@@ -9,5 +9,5 @@ new class extends Component
 ?>
 
 <div>
-    {{-- Life is available only in the present moment. - Thich Nhat Hanh --}}
+    {{-- No surplus words or unnecessary actions. - Marcus Aurelius --}}
 </div>

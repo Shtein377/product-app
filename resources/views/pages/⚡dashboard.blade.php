@@ -1,19 +1,26 @@
 <?php
 
 use Livewire\Component;
-use Livewire\Attributes\Title;
-new #[Title('Дашборд')] class extends Component
 
+new class extends Component
 {
     //
 };
 ?>
 
-<div>
-   <div>
-        <flux:heading size="xl" level="1">Дашборд</flux:heading>
-        <flux:subheading>Общая картина по всем вашим группам</flux:subheading>
-    </div>
+<div class="min-h-screen p-6">
+    <div class="mx-auto max-w-5xl space-y-6">
 
-    <flux:text>Здесь появятся итоги: сколько вам должны и сколько должны вы.</flux:text>
+        <section class="space-y-2">
+            <flux:heading size="xl">
+                Добро пожаловать, {{ auth()->user()->name }}!
+            </flux:heading>
+
+            <flux:text>
+                Здесь будет ваш семейный кабинет — пространство
+                для заботы о здоровье и развитии детей.
+            </flux:text>
+        </section>
+
+    </div>
 </div>
