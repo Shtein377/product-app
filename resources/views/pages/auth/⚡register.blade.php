@@ -102,7 +102,22 @@ new class extends Component {
             </flux:button>
 
         </form>
+        {{-- Разделитель --}}
+        <div class="relative flex items-center">
+            <div class="flex-grow border-t border-zinc-200 dark:border-zinc-700"></div>
+            <span class="mx-4 text-sm text-zinc-400">или</span>
+            <div class="flex-grow border-t border-zinc-200 dark:border-zinc-700"></div>
+        </div>
 
+        {{-- Вход через VK ID --}}
+        <button type="button"
+            class="flex w-full items-center justify-center gap-3 rounded-lg bg-[#0077FF] px-4 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#0066DD]">
+            <span class="flex size-7 items-center justify-center rounded-md bg-white text-lg font-bold text-[#0077FF]">
+                vk
+            </span>
+
+            Продолжить через VK ID
+        </button>
         <div class="text-center">
             <flux:text>
                 Уже есть аккаунт?

@@ -11,12 +11,24 @@ use App\Http\Controllers\Auth\LogoutController;
 Route::livewire('/', 'pages::home')
     ->name('home');
 
+// Вход
+Route::livewire('/login', 'pages::auth.login')
+    ->name('login');
+// Регистрация
 Route::livewire('/register', 'pages::auth.register')
     ->name('register');
 
+Route::livewire('/forgot-password', 'pages::auth.forgot-password')
+    ->middleware('guest')
+    ->name('password.request');
 
-    Route::livewire('/dashboard', 'pages::dashboard')
+// Личный кабинет — только для авторизованных
+Route::livewire('/dashboard', 'pages::dashboard')
+    ->middleware('auth')
     ->name('dashboard');
 
 
-Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+// Выход
+Route::post('/logout', [LogoutController::class, 'logout'])
+    ->middleware('auth')
+    ->name('logout');
