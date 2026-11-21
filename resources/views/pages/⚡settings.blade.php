@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\Attributes\Computed;
-
+use Carbon\Carbon;
 
 new class extends Component
 {
@@ -149,22 +149,10 @@ new class extends Component
         $this->saved = false;
     }
 
-    private function getUtcOffset(string $identifier): string
-    {
-        $date = new \DateTimeImmutable(
-            'now',
-            new \DateTimeZone($identifier)
-        );
-
-        $offset = $date->getOffset();
-
-        $hours = intdiv(abs($offset), 3600);
-        $minutes = intdiv(abs($offset) % 3600, 60);
-
-        $sign = $offset >= 0 ? '+' : '-';
-
-        return sprintf('UTC%s%02d:%02d', $sign, $hours, $minutes);
-    }
+   private function getUtcOffset(string $identifier): string
+{
+    return 'UTC' . Carbon::now($identifier)->format('P');
+}
 
     #[Computed]
     public function filteredTimezones(): array
